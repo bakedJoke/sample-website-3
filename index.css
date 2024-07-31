@@ -1,0 +1,324 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+body {
+  min-height: 100vh;
+  background-color: black;
+  font-family: "Open Sans", sans-serif;
+}
+.bold {
+  font-weight: bold;
+}
+.spacer {
+  margin: 0 15px;
+}
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  background-color: transparent;
+  top: 0;
+}
+.header .toggle {
+  display: none;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .container .brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .brand i {
+  color: #fff;
+  font-size: 30px;
+  padding-right: 10px;
+}
+.header .container .brand img {
+  height: 75px;
+  width: 125px;
+}
+.header .container .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 15px;
+  gap: 20px;
+}
+.header .container .navbar .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .container .navbar .nav .nav_link {
+  padding: 0 10px;
+  font-weight: bold;
+}
+.header .container .navbar .nav .nav_icon {
+  padding: 0 5px;
+  font-size: 20px;
+}
+.header .container .navbar .profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .container .navbar .switch {
+  font-size: 20px;
+  background-color: tomato;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px 10px;
+}
+.header .container .navbar .switch i {
+  padding: 8px 15px;
+  border-radius: 10px;
+}
+
+.header .container .navbar .switch .selected {
+  background-color: black;
+}
+.header .container .navbar .dropdown {
+  margin-left: 15px;
+}
+.header .container .navbar .dropdown .dropdown_toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.header .container .navbar .dropdown .dropdown_toggle a {
+  padding: 0 5px;
+}
+.header .container .navbar .dropdown .dropdown_toggle img {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  margin-right: 10px;
+}
+@media (max-width: 1250px) {
+  .header .toggle {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+  }
+  .header .container .navbar {
+    display: none;
+  }
+}
+
+.main {
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  background-attachment: fixed;
+  background: url(img/astronaut-space-black-background-3d-illustration_151689-452.jpg-transformed.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.main h1 {
+  color: #fff;
+  font-size: 70px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+.main h1 span {
+  font-weight: bold;
+}
+.main .content {
+  padding-top: 100px;
+}
+.main .features {
+  display: flex;
+}
+.main .features ul {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 20px;
+  color: #fff;
+}
+.main .features ul li {
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+.main .features ul li i {
+  color: tomato;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  margin-right: 15px;
+}
+.main .features .text {
+  color: #fff;
+  font-size: 20px;
+  text-align: start;
+  display: flex;
+  gap: 8px;
+  width: 20%;
+}
+.main .features .text .divider {
+  width:  10px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+.main .cards {
+  width: 100%;
+  display: flex;
+  height: 200px;
+  margin-top: 50px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.main .cards .card {
+  width: 25%;
+  height: 100%;
+  position: relative;
+  color: #fff;
+  display: flex;
+  padding: 30px;
+}
+.main .container .cards .card .card_content {
+  text-align: start;
+}
+.main .container .cards .card .content_center {
+    align-self: center;
+}
+.main .container .cards .card .content_end {
+    align-self:flex-end;
+}
+.main .container .cards .card .content_end h3{
+}
+.main .container .cards .card .content_end p{
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+
+.main .cards .card:nth-child(1) {
+  background-color: #3b39a3;
+}
+.main .cards .card:nth-child(2) {
+  background-color: #cf7e1b;
+}
+.main .cards .card:nth-child(3) {
+  background-color: #ddddee;
+  color: #3b39a3;
+}
+.main .cards .card:nth-child(4) {
+  background-color: #337287;
+}
+
+@media (max-width: 1200px) {
+.main{
+    height: max-content;
+}
+  .main h1 {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+  .main .features {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .main  .features ul {
+    font-size: 20px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+  }
+  .main  .features ul li {
+    margin: 0;
+  }
+  .main  .features ul li i {
+    padding: 20px;
+    border-radius: 15px;
+    margin-right: 15px;
+  }
+  .main .features .text {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .main .features .text .divider{
+    width: 70%;
+    height: 3px;
+  }
+  .main  .features .text p {
+    margin: 0;
+  }
+  .main .container .cards .card {
+    width: 600px;
+    height: 200px;
+    border-radius: 20px;
+  }
+  .main  .cards {
+    color: black;
+    height: 100%;
+    gap: 0.5em;
+  }
+  
+}
+@media (max-width : 768px){
+    .features ul{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .features li{
+        width: 50%;
+    }
+    .cards{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 100% !important;
+    }
+
+}
+@media (max-width : 500px){
+    .main h1 {
+        font-size: 50px;
+      }
+      .features li{
+        flex-direction: column;
+        text-align: center !important;
+        width: 100%;
+        gap: 10px;
+        margin-bottom: 30px !important;
+      }
+}

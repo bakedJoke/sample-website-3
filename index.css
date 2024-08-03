@@ -31,6 +31,7 @@ body {
   position: fixed;
   background-color: transparent;
   top: 0;
+  z-index: 100;
 }
 .header .toggle {
   display: none;
@@ -39,6 +40,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .header .container .brand {
   display: flex;
@@ -68,13 +70,41 @@ body {
   align-items: center;
 }
 .header .container .navbar .nav .nav_link {
-  padding: 0 10px;
   font-weight: bold;
+  margin: 0 15px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
 }
+.header .container .navbar .nav .nav_link::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  background-color: #cf7e1b;
+  bottom: -5px;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.header .container .navbar .nav .nav_link:hover::before {
+  width: 100%;
+}
+
 .header .container .navbar .nav .nav_icon {
   padding: 0 5px;
   font-size: 20px;
+  position: relative;
 }
+.header .container .navbar .nav .nav_icon .notification{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  border-radius: 50%;
+  padding: 2px 4px;
+  font-size: 10px;
+  cursor:default;
+}
+
 .header .container .navbar .profile {
   display: flex;
   align-items: center;
@@ -88,14 +118,25 @@ body {
   align-items: center;
   justify-content: space-around;
   padding: 8px 10px;
+  position: relative;
+}
+.header .container .navbar .switch .switch_block {
+  position: absolute;
+  background-color: black;
+  width: 50px;
+  height: 40px;
+  left: 11px;
+  z-index: 1;
+  border-radius: 15px;
+  transition: left 0.5s;
+}
+.header .container .navbar .switch .switch_icon {
+  z-index: 3;
 }
 .header .container .navbar .switch i {
   padding: 8px 15px;
   border-radius: 10px;
-}
-
-.header .container .navbar .switch .selected {
-  background-color: black;
+  cursor: pointer;
 }
 .header .container .navbar .dropdown {
   margin-left: 15px;
@@ -115,11 +156,41 @@ body {
   width: 45px;
   margin-right: 10px;
 }
+.toggle_dropdown{
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  width: 100%;
+  border-radius: 25px;
+  text-align: center;
+  height: 0;
+  transition: height .5s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.toggle_dropdown li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+
+}
+
 @media (max-width: 1250px) {
   .header .toggle {
     display: block;
     color: #fff;
     font-size: 15px;
+    cursor: pointer;
+    position: relative;
+  }
+  .show_dropdown{
+    height: 250px;
   }
   .header .container .navbar {
     display: none;
@@ -131,10 +202,33 @@ body {
   width: 100%;
   text-align: center;
   background-attachment: fixed;
-  background: url(img/astronaut-space-black-background-3d-illustration_151689-452.jpg-transformed.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  position: relative;
+  overflow: hidden;
+}
+.main .background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: background_anim 5s infinite alternate ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+.main .background img {
+  object-fit: cover;
+  width: 50%;
+}
+@keyframes background_anim {
+  0% {
+    top: 40%;
+  }
+  100% {
+    top: 60%;
+  }
 }
 .main h1 {
   color: #fff;
@@ -181,7 +275,7 @@ body {
   width: 20%;
 }
 .main .features .text .divider {
-  width:  10px;
+  width: 10px;
   height: 100%;
   background-color: #fff;
   border-radius: 25px;
@@ -207,18 +301,17 @@ body {
   text-align: start;
 }
 .main .container .cards .card .content_center {
-    align-self: center;
+  align-self: center;
 }
 .main .container .cards .card .content_end {
-    align-self:flex-end;
+  align-self: flex-end;
 }
-.main .container .cards .card .content_end h3{
+.main .container .cards .card .content_end h3 {
 }
-.main .container .cards .card .content_end p{
-    margin-top: 10px;
-    font-weight: 500;
+.main .container .cards .card .content_end p {
+  margin-top: 10px;
+  font-weight: 500;
 }
-
 
 .main .cards .card:nth-child(1) {
   background-color: #3b39a3;
@@ -235,9 +328,12 @@ body {
 }
 
 @media (max-width: 1200px) {
-.main{
+  .main {
     height: max-content;
-}
+  }
+  .main .background img {
+    width: 100%;
+  }
   .main h1 {
     color: #fff;
     font-size: 50px;
@@ -251,15 +347,15 @@ body {
     align-items: center;
     justify-content: center;
   }
-  .main  .features ul {
+  .main .features ul {
     font-size: 20px;
     margin-bottom: 20px;
     flex-wrap: nowrap;
   }
-  .main  .features ul li {
+  .main .features ul li {
     margin: 0;
   }
-  .main  .features ul li i {
+  .main .features ul li i {
     padding: 20px;
     border-radius: 15px;
     margin-right: 15px;
@@ -271,13 +367,12 @@ body {
     width: 100%;
     flex-direction: column;
     align-items: center;
-
   }
-  .main .features .text .divider{
+  .main .features .text .divider {
     width: 70%;
     height: 3px;
   }
-  .main  .features .text p {
+  .main .features .text p {
     margin: 0;
   }
   .main .container .cards .card {
@@ -285,40 +380,61 @@ body {
     height: 200px;
     border-radius: 20px;
   }
-  .main  .cards {
+  .main .cards {
     color: black;
     height: 100%;
     gap: 0.5em;
   }
-  
 }
-@media (max-width : 768px){
-    .features ul{
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    .features li{
-        width: 50%;
-    }
-    .cards{
-        flex-direction: column;
-        align-items: center;
-    }
-    .card{
-        width: 100% !important;
-    }
+@media (max-width: 768px) {
+  .features ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .features li {
+    width: 50%;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100% !important;
+  }
+}
+@media (max-width: 500px) {
+  .main h1 {
+    font-size: 50px;
+  }
+  .features li {
+    flex-direction: column;
+    text-align: center !important;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 30px !important;
+  }
+}
 
+.link-9 {
+  transition: 0.4s;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  position: relative;
 }
-@media (max-width : 500px){
-    .main h1 {
-        font-size: 50px;
-      }
-      .features li{
-        flex-direction: column;
-        text-align: center !important;
-        width: 100%;
-        gap: 10px;
-        margin-bottom: 30px !important;
-      }
+.link-9::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 4px;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 0;
+  transition: width 0.4s;
+}
+.link-9:hover::before {
+  width: 100%;
 }

@@ -142,6 +142,7 @@ body {
 }
 .header .navbar .dropdown {
   margin-left: 15px;
+  position: relative;
 }
 .header .navbar .dropdown .dropdown_toggle {
   display: flex;
@@ -149,6 +150,21 @@ body {
   justify-content: space-between;
   height: 100%;
 }
+.header .navbar .dropdown .profile-dropdown{
+  position: absolute;
+  overflow: hidden;
+  height: 0;
+  top: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  transition: height 0.3s ease-in-out;
+}
+.header .navbar .dropdown .showed{
+  height: 150px;
+}
+.header .navbar .dropdown .profile-dropdown li{
+  padding: 15px;
+}  
 .header .navbar .dropdown .dropdown_toggle i {
   cursor: pointer;
 }

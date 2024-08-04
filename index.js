@@ -4,10 +4,14 @@ const switchBlock = document.querySelector(".switch_block");
 const notification = document.querySelector(".notification");
 const toggler = document.querySelector(".toggle_dropdown");
 const toggle_icon = document.querySelector(".toggle");
+const dropdown_btn = document.querySelector(".dropdown_toggle")
+const dropdown_menu = document.querySelector(".profile-dropdown")
 toggle_icon.addEventListener('click',()=>{
     toggler.classList.toggle("show_dropdown")
 })
-
+dropdown_btn.addEventListener('click',()=>{
+  dropdown_menu.classList.toggle("showed")
+})
 const notification_count = 1
 if (notification_count== 0) {
     notification.style.display = "none";

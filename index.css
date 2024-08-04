@@ -42,21 +42,22 @@ body {
   justify-content: space-between;
   position: relative;
 }
-.header .container .brand {
+.header .brand {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header .container .brand i {
+.header  .brand i {
   color: #fff;
   font-size: 30px;
   padding-right: 10px;
 }
-.header .container .brand img {
+.header  .brand img {
   height: 75px;
   width: 125px;
+  cursor: pointer;
 }
-.header .container .navbar {
+.header  .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -64,18 +65,18 @@ body {
   font-size: 15px;
   gap: 20px;
 }
-.header .container .navbar .nav {
+.header  .navbar .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.header .container .navbar .nav .nav_link {
+.header  .navbar .nav .nav_link {
   font-weight: bold;
   margin: 0 15px;
   position: relative;
   transition: all 0.2s ease-in-out;
 }
-.header .container .navbar .nav .nav_link::before {
+.header  .navbar .nav .nav_link::before {
   content: "";
   position: absolute;
   width: 0%;
@@ -85,16 +86,17 @@ body {
   left: 0;
   transition: all 0.3s ease-in-out;
 }
-.header .container .navbar .nav .nav_link:hover::before {
+.header  .navbar .nav .nav_link:hover::before {
   width: 100%;
 }
 
-.header .container .navbar .nav .nav_icon {
+.header  .navbar .nav .nav_icon {
   padding: 0 5px;
   font-size: 20px;
   position: relative;
+  cursor: pointer;
 }
-.header .container .navbar .nav .nav_icon .notification{
+.header  .navbar .nav .nav_icon .notification{
   position: absolute;
   top: -5px;
   right: -5px;
@@ -105,12 +107,12 @@ body {
   cursor:default;
 }
 
-.header .container .navbar .profile {
+.header .navbar .profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header .container .navbar .switch {
+.header .navbar .switch {
   font-size: 20px;
   background-color: tomato;
   border-radius: 15px;
@@ -120,7 +122,7 @@ body {
   padding: 8px 10px;
   position: relative;
 }
-.header .container .navbar .switch .switch_block {
+.header .navbar .switch .switch_block {
   position: absolute;
   background-color: black;
   width: 50px;
@@ -130,31 +132,32 @@ body {
   border-radius: 15px;
   transition: left 0.5s;
 }
-.header .container .navbar .switch .switch_icon {
+.header .navbar .switch .switch_icon {
   z-index: 3;
 }
-.header .container .navbar .switch i {
+.header .navbar .switch i {
   padding: 8px 15px;
   border-radius: 10px;
   cursor: pointer;
 }
-.header .container .navbar .dropdown {
+.header .navbar .dropdown {
   margin-left: 15px;
 }
-.header .container .navbar .dropdown .dropdown_toggle {
+.header .navbar .dropdown .dropdown_toggle {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
 }
-.header .container .navbar .dropdown .dropdown_toggle a {
-  padding: 0 5px;
+.header .navbar .dropdown .dropdown_toggle i {
+  cursor: pointer;
 }
-.header .container .navbar .dropdown .dropdown_toggle img {
+.header .navbar .dropdown .dropdown_toggle img {
   border-radius: 50%;
   height: 45px;
   width: 45px;
   margin-right: 10px;
+  cursor: pointer;
 }
 .toggle_dropdown{
   position: absolute;
@@ -387,6 +390,14 @@ body {
   }
 }
 @media (max-width: 768px) {
+  @keyframes background_anim {
+    0% {
+      top: 50%;
+    }
+    100% {
+      top: 60%;
+    }
+  }
   .features ul {
     flex-direction: column;
     align-items: center;
@@ -407,6 +418,14 @@ body {
   .main h1 {
     font-size: 50px;
   }
+  @keyframes background_anim {
+    0% {
+      top: 60%;
+    }
+    100% {
+      top: 70%;
+    }
+  }
   .features li {
     flex-direction: column;
     text-align: center !important;
@@ -416,25 +435,3 @@ body {
   }
 }
 
-.link-9 {
-  transition: 0.4s;
-  color: #ffffff;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  position: relative;
-}
-.link-9::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 4px;
-  background-color: #ffffff;
-  bottom: 0;
-  left: 0;
-  transition: width 0.4s;
-}
-.link-9:hover::before {
-  width: 100%;
-}
